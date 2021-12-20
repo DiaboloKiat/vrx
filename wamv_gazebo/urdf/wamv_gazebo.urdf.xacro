@@ -67,6 +67,11 @@
     <xacro:if value="${thruster_conf == 'X'}">
       <xacro:wamv_gazebo thruster_layout="$(find wamv_gazebo)/urdf/thruster_layouts/wamv_x_thrusters.xacro"/>
     </xacro:if>
+
+    <!-- WAMV with "C" thruster configuration -->
+    <xacro:if value="${thruster_conf == 'C'}">
+      <xacro:wamv_gazebo thruster_layout="$(find wamv_gazebo)/urdf/thruster_layouts/wamv_t_thrusters_nycu.xacro"/>
+    </xacro:if>
   </xacro:unless>
 
   <!-- === Decide if we lock the robot to the world === -->
