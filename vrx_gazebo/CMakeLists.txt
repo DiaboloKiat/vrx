@@ -360,6 +360,7 @@ xacro_add_files(
   worlds/sydneyregatta.world.xacro
   worlds/wayfinding_task.world.xacro
   worlds/wildlife_task.world.xacro
+  worlds/master_thesis.world.xacro
   ${XACRO_INORDER} INSTALL DESTINATION worlds
 )
 # Generate obstacle course
@@ -408,6 +409,7 @@ catkin_install_python(PROGRAMS
     nodes/set_pinger_position.py
     nodes/twist2thrust.py
     nodes/key2thrust_angle.py
+    nodes/joystick2thrust.py
     scripts/generate_worlds.py
     scripts/generate_wamv.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
