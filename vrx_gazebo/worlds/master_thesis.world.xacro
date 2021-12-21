@@ -33,104 +33,19 @@
     <!-- The light buoy -->
     <include>
       <uri>model://robotx_light_buoy</uri>
-      <pose>-511 218 0.25 0 0 3.14</pose>
+      <pose>-500 224 0.25 0 0 3.14</pose>
     </include>
 
-    <!-- The 2022 dock with the placards -->
+    <!-- The 2022 dock with the placards -->  
     <include>
       <uri>model://dock_2022</uri>
-      <pose>-554 233 0 0 0 3.14</pose>
+      <pose>-550 233 0 0 0 3.14</pose>
     </include>
 
-    <!-- Plugin to detect if the projectile entered the hole -->
-    <!-- Debug: Run this command to face this hole -->
-    <!-- gz model -m wamv -x -555.21 -y 229.75 -z 0 -Y 3.14159 -->
-    <plugin name="contain_placard1_big_plugin" filename="libContainPlugin.so">
-      <enabled>true</enabled>
-      <entity>blue_projectile::link</entity>
-      <namespace>vrx/dock_2022_placard1_big_hole</namespace>
-      <pose frame="robotx_dock_2022::dock_2022_placard1::link_symbols">0.6 -0.27 1.33 0 0 0</pose>
-      <geometry>
-        <box>
-          <size>0.5 0.5 0.5</size>
-        </box>
-      </geometry>
-    </plugin>
-
-    <!-- Plugin to detect if the projectile entered the hole -->
-    <!-- Debug: Run this command to face this hole -->
-    <!-- gz model -m wamv -x -555.28 -y 230.32 -z 0 -Y 3.01159 -->
-    <plugin name="contain_placard1_small_plugin" filename="libContainPlugin.so">
-      <enabled>true</enabled>
-      <entity>blue_projectile::link</entity>
-      <namespace>vrx/dock_2022_placard1_small_hole</namespace>
-      <pose frame="robotx_dock_2022::dock_2022_placard1::link_symbols">-0.6 -0.27 1.33 0 0 0</pose>
-      <geometry>
-        <box>
-          <size>0.25 0.5 0.25</size>
-        </box>
-      </geometry>
-    </plugin>
-
-    <!-- Plugin to detect if the projectile entered the hole -->
-    <!-- Debug: Run this command to face this hole -->
-    <!-- gz model -m wamv -x -555.21 -y 223.75 -z 0 -Y 3.14159 -->
-    <plugin name="contain_placard2_big_plugin" filename="libContainPlugin.so">
-      <enabled>true</enabled>
-      <entity>blue_projectile::link</entity>
-      <namespace>vrx/dock_2022_placard2_big_hole</namespace>
-      <pose frame="robotx_dock_2022::dock_2022_placard2::link_symbols">0.6 -0.27 1.33 0 0 0</pose>
-      <geometry>
-        <box>
-          <size>0.5 0.5 0.5</size>
-        </box>
-      </geometry>
-    </plugin>
-
-    <!-- Plugin to detect if the projectile entered the hole -->
-    <!-- Debug: Run this command to face this hole -->
-    <!-- gz model -m wamv -x -555.25 -y 223.75 -z 0 -Y 2.91159 -->
-    <plugin name="contain_placard2_small_plugin" filename="libContainPlugin.so">
-      <enabled>true</enabled>
-      <entity>blue_projectile::link</entity>
-      <namespace>vrx/dock_2022_placard2_small_hole</namespace>
-      <pose frame="robotx_dock_2022::dock_2022_placard2::link_symbols">-0.6 -0.27 1.33 0 0 0</pose>
-      <geometry>
-        <box>
-          <size>0.25 0.5 0.25</size>
-        </box>
-      </geometry>
-    </plugin>
-
-    <!-- Plugin to detect if the projectile entered the hole -->
-    <!-- Debug: Run this command to face this hole -->
-    <!-- gz model -m wamv -x -555.25 -y 217.75 -z 0 -Y 3.14159 -->
-    <plugin name="contain_placard3_big_plugin" filename="libContainPlugin.so">
-      <enabled>true</enabled>
-      <entity>blue_projectile::link</entity>
-      <namespace>vrx/dock_2022_placard3_big_hole</namespace>
-      <pose frame="robotx_dock_2022::dock_2022_placard3::link_symbols">0.6 -0.27 1.33 0 0 0</pose>
-      <geometry>
-        <box>
-          <size>0.5 0.5 0.5</size>
-        </box>
-      </geometry>
-    </plugin>
-
-    <!-- Plugin to detect if the projectile entered the hole -->
-    <!-- Debug: Run this command to face this hole -->
-    <!-- gz model -m wamv -x -555.25 -y 217.75 -z 0 -Y 2.89159 -->
-    <plugin name="contain_placard3_small_plugin" filename="libContainPlugin.so">
-      <enabled>true</enabled>
-      <entity>blue_projectile::link</entity>
-      <namespace>vrx/dock_2022_placard3_small_hole</namespace>
-      <pose frame="robotx_dock_2022::dock_2022_placard3::link_symbols">-0.6 -0.27 1.33 0 0 0</pose>
-      <geometry>
-        <box>
-          <size>0.25 0.5 0.25</size>
-        </box>
-      </geometry>
-    </plugin>
+    <include>
+      <uri>model://dock_2022_base</uri>
+      <pose>-450 215 0 0 0 0</pose>
+    </include>
 
     <!-- The scoring plugin -->
     <plugin name="scan_dock_deliver_scoring_plugin"
@@ -166,17 +81,17 @@
           <internal_activation_topic>/vrx/dock_2022/bay_1/contain</internal_activation_topic>
           <external_activation_topic>/vrx/dock_2022/bay_1_external/contain</external_activation_topic>
           <symbol_topic>/vrx/dock_2022_placard1/symbol</symbol_topic>
-          <min_dock_time>10.0</min_dock_time>
+          <min_dock_time>5.0</min_dock_time>
           <dock_allowed>${bay1_allowed}</dock_allowed>
           <symbol>${bay1_symbol}</symbol>
         </bay>
-
+ 
         <bay>
           <name>bay2</name>
           <internal_activation_topic>/vrx/dock_2022/bay_2/contain</internal_activation_topic>
           <external_activation_topic>/vrx/dock_2022/bay_2_external/contain</external_activation_topic>
           <symbol_topic>/vrx/dock_2022_placard2/symbol</symbol_topic>
-          <min_dock_time>10.0</min_dock_time>
+          <min_dock_time>5.0</min_dock_time>
           <dock_allowed>${bay2_allowed}</dock_allowed>
           <symbol>${bay2_symbol}</symbol>
         </bay>
@@ -186,7 +101,7 @@
           <internal_activation_topic>/vrx/dock_2022/bay_3/contain</internal_activation_topic>
           <external_activation_topic>/vrx/dock_2022/bay_3_external/contain</external_activation_topic>
           <symbol_topic>/vrx/dock_2022_placard3/symbol</symbol_topic>
-          <min_dock_time>10.0</min_dock_time>
+          <min_dock_time>5.0</min_dock_time>
           <dock_allowed>${bay3_allowed}</dock_allowed>
           <symbol>${bay3_symbol}</symbol>
         </bay>
@@ -282,7 +197,7 @@
         </box>
       </geometry>
     </plugin>
-    <plugin filename="libContainPlugin.so" name="vehicle_docked_bay3_exterior">
+    <plugin name="vehicle_docked_bay3_exterior" filename="libContainPlugin.so">
       <entity>wamv::wamv/base_link</entity>
       <namespace>vrx/dock_2022/bay_3_external</namespace>
       <pose frame="robotx_dock_2022::dock_2022_placard3::placard::link">0 -9.5 -1.5 0 0 0</pose>
