@@ -85,7 +85,7 @@ bool ColorSequenceChecker::OnColorSequence(
   }
 
   // Sanity check: Make sure that we have the expected color sequence.
-  if (this->expectedSequence.size() != 3u)
+  if (this->expectedSequence.size() != 3)
   {
     ROS_ERROR("The color sequence is not of size 3 - will be ignored.");
     res.success = false;
