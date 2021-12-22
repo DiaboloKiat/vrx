@@ -6,7 +6,7 @@ git config --global user.email "DiaboloKiat@gmail.com"
 git status
 git checkout master
 echo "Enter your message"
-read message
+read message_vrx
 
 if [ "$1" = "base" ]
 then
@@ -23,18 +23,16 @@ fi
 
 BRANCH=master
 echo "---------------------------------------------------------------------------------------------------"
-source ~/$REPO/github/git_branch.sh $1
-pwd
-echo "$REPO"
+source ~/$PROJECT/github/git_branch.sh $1
 echo "---------------------------------------------------------------------------------------------------"
-source ~/$REPO/github/git_pull.sh $1
-pwd
+source ~/$PROJECT/github/git_pull.sh $1
+
 
 PULLSTAT=$?
 if [ "$PULLSTAT" -gt 0 ]
 then
    echo "There is conflict. Aborting"
-   cd ~/$REPO
+   cd $cur_path/
    return
 fi
 echo "---------------------------------------------------------------------------------------------------"
@@ -49,7 +47,7 @@ echo "--------------------------------------------push vrx----------------------
 echo "---------------------------------------------------------------------------------------------------"
 cd ~/$PROJECT
 git add -A
-git commit -m "${message} on vrx"
+git commit -m "${message_vrx} on vrx"
 git push
 
 
