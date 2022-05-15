@@ -52,7 +52,7 @@
     <include>
       <name>dock_2</name>
       <uri>model://dock_2022_base</uri>
-      <pose>-450 215 0 0 0 0</pose>
+      <pose>-50 215 0 0 0 0</pose>
     </include>
 
   </world>
