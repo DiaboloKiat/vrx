@@ -55,5 +55,11 @@
       <pose>-50 215 0 0 0 0</pose>
     </include>
 
+    <include>
+      <name>obstacle_1</name>
+      <uri>model://obstacle_course1</uri>
+      <pose>-525 219 0.11 0 0 0</pose>
+    </include>
+
   </world>
 </sdf>
